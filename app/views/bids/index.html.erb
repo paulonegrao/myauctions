@@ -1,0 +1,6 @@
+<h2>Bids by User</h2>
+<% @bids.each do |bid| %>
+  <% user = User.find_by_id(bid.user_id) %>
+  <%= bid.amount %><%= "   #{bid.auction_id}"%> <%= "   #{user.first_name} "%><%= user.last_name %>
+<% end %>
+</div>

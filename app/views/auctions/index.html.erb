@@ -1,0 +1,11 @@
+<h1>AUCTION</h1>
+<h2>Recent Auctions</h2>
+<% @auctions.each do |auction| %>
+
+    <div class="well">
+      <h3>
+        <%= link_to auction.title.upcase, auction_path(auction) %>
+        (<%= auction.bids.size %> bids)
+      </h3>
+    </div>
+<% end %>

@@ -1,0 +1,9 @@
+<%= simple_form_for @auction do |f| %>
+  <div class="form-group">
+    <%= f.input :title, class: "form-control"%>
+    <%= f.input :details, class: "form-control"%>
+    <%= f.input :reserve_price, as: :string, class: "form-control" %>
+    <%= f.input :end_on, class: "form-control" %>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

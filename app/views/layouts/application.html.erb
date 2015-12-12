@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome Auctions</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <%= link_to "Home", root_path %> |
+      <%= link_to "New Auction", new_auction_path %> |
+      <div class="pull-right">
+        <% if user_signed_in? %>
+          <%= current_user.full_name %>
+          <%= link_to "Logout", sessions_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign In", new_session_path %>
+          <%= link_to "Sign Up", new_user_path %>
+        <% end %>
+      </div>
+    </nav>
+    <%#= flash || notice %>
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
+    <% end %>
+    <%= yield %>
+  </div>
+</body>
+</html>
